@@ -22,11 +22,11 @@ class MinhaThread extends Thread {
 	MinhaThread(int num) {
 		this.numThread = num;
 	}
-	
+
 	public void run() {
-		for(Main.i = 0; Main.i < 99; Main.i++) {
+		for(int i = Main.i; Main.i < 99; Main.i++) {
 			System.out.println("Valor de i na thread " + numThread + " é: " + Main.i);
-			largestPrimeFactor(99999);
+			//largestPrimeFactor(99999);
 		}
 		System.err.println("Terminou thread " + numThread + ". P:" + Thread.currentThread().getPriority());
 	}
