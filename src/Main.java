@@ -12,6 +12,7 @@ public class Main {
 		mT2.start();
 		mT3.start();
 		for(i = 0; i < 99; i++) {
+			System.out.println("Valor de i na thread principal: " + i);
 		}
 		System.err.println("Terminou thread principal. P:" + Thread.currentThread().getPriority());
 	}
@@ -23,7 +24,8 @@ class MinhaThread extends Thread {
 	}
 	
 	public void run() {
-		for(int i = 0; i < 99; i++) {
+		for(Main.i = 0; Main.i < 99; Main.i++) {
+			System.out.println("Valor de i na thread " + numThread + " é: " + Main.i);
 			largestPrimeFactor(99999);
 		}
 		System.err.println("Terminou thread " + numThread + ". P:" + Thread.currentThread().getPriority());
@@ -46,3 +48,38 @@ class MinhaThread extends Thread {
 	  }
 	}
 }
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class Main {
+//
+//    public static volatile  int a = 0;
+//    public static void main(String args[]) throws InterruptedException{
+//
+//        List<Thread> list = new  ArrayList<Thread>();
+//        for(int i = 0 ; i<11 ;i++){
+//            list.add(new Pojo());
+//        }
+//
+//        for (Thread thread : list) {
+//            thread.start();
+//        }
+//
+//        Thread.sleep(20000);
+//        System.out.println(a);
+//    }
+//}
+//class Pojo extends Thread{
+//    int a = 10001;
+//    public void run() {
+//        while(a-->0){
+//            try {
+//                Thread.sleep(1);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            Main.a++;
+//            System.out.println("a = "+Main.a);
+//        }
+//    }
+//}
